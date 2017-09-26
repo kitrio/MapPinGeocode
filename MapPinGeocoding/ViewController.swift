@@ -44,7 +44,7 @@ class ViewController: UIViewController {
                 let region = MKCoordinateRegionMake(center, span)
                 self.mapView.setRegion(region, animated: true)
                 
-                //pin
+                //pin annotation
                 let anno = MKPointAnnotation()
                 anno.coordinate.latitude = self.lat!
                 anno.coordinate.longitude = self.long!
