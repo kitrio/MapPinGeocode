@@ -17,9 +17,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+         //Reverse GeoCoding
+                let reverseGeoCoder: CLGeocoder = CLGeocoder()
         
+                // DIT 35.166083, 129.072669
+                let myLocation: CLLocation = CLLocation(latitude: 35.166083, longitude: 129.072669)
+        
+                reverseGeoCoder.reverseGeocodeLocation(myLocation, completionHandler: {
+                     (placemarks, error) -> Void in
+        
+                    let rePlacemark: CLPlacemark = placemarks!.first!
+                    print("Placemark = \(String(describing: rePlacemark.addressDictionary))")
+                        
+                })
+            
+    
         let geoCoder: CLGeocoder = CLGeocoder()
         let address = "부산광역시 부산진구 범전동 시민공원로 73"
         //geoCoder.geocodeAddressString(address, completionHandler: <#T##CLGeocodeCompletionHandler##CLGeocodeCompletionHandler##([CLPlacemark]?, Error?) -> Void#>)
